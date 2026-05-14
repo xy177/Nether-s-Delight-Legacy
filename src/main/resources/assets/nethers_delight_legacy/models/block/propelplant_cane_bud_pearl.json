@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "nethers_delight_legacy:block/propelplant_cane_bud_pearl"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "nethers_delight_legacy:block/crimson_fungus_colony_stage0"
+  }
+}

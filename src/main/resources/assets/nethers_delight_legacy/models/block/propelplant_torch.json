@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/torch",
+  "textures": {
+    "torch": "nethers_delight_legacy:block/propelplant_torch"
+  }
+}

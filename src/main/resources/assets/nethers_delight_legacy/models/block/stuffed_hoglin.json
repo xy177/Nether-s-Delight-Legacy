@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "nethers_delight_legacy:block/stuffed_hoglin_block"
+  }
+}

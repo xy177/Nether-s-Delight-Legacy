@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wfc",
+    "l#l",
+    "hsh"
+  ],
+  "key": {
+    "w": {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    },
+    "f": {
+      "type": "forge:ore_dict",
+      "ore": "cropCrimsonFungus"
+    },
+    "c": {
+      "type": "forge:ore_dict",
+      "ore": "cropCrimsonRoots"
+    },
+    "l": {
+      "item": "nethers_delight_legacy:hoglin_loin"
+    },
+    "#": {
+      "item": "nethers_delight_legacy:hoglin_hide"
+    },
+    "h": {
+      "item": "farmersdelight:ham"
+    },
+    "s": {
+      "item": "farmersdelight:nether_salad"
+    }
+  },
+  "result": {
+    "item": "nethers_delight_legacy:raw_stuffed_hoglin"
+  }
+}

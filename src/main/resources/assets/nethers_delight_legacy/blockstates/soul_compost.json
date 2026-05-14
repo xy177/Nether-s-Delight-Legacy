@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "composting=0": [
+      { "model": "nethers_delight_legacy:soul_compost_0" },
+      { "model": "nethers_delight_legacy:soul_compost_0", "y": 90 },
+      { "model": "nethers_delight_legacy:soul_compost_0", "y": 180 },
+      { "model": "nethers_delight_legacy:soul_compost_0", "y": 270 }
+    ],
+    "composting=1": [
+      { "model": "nethers_delight_legacy:soul_compost_1" },
+      { "model": "nethers_delight_legacy:soul_compost_1", "y": 90 },
+      { "model": "nethers_delight_legacy:soul_compost_1", "y": 180 },
+      { "model": "nethers_delight_legacy:soul_compost_1", "y": 270 }
+    ],
+    "composting=2": [
+      { "model": "nethers_delight_legacy:soul_compost_2" },
+      { "model": "nethers_delight_legacy:soul_compost_2", "y": 90 },
+      { "model": "nethers_delight_legacy:soul_compost_2", "y": 180 },
+      { "model": "nethers_delight_legacy:soul_compost_2", "y": 270 }
+    ],
+    "composting=3": [
+      { "model": "nethers_delight_legacy:soul_compost_3" },
+      { "model": "nethers_delight_legacy:soul_compost_3", "y": 90 },
+      { "model": "nethers_delight_legacy:soul_compost_3", "y": 180 },
+      { "model": "nethers_delight_legacy:soul_compost_3", "y": 270 }
+    ]
+  }
+}

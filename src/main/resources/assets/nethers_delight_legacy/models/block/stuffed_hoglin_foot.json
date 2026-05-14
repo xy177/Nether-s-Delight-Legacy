@@ -1,0 +1,37 @@
+{
+  "parent": "block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "nethers_delight_legacy:block/stuffed_hoglin_block",
+    "body": "nethers_delight_legacy:block/stuffed_hoglin_block",
+    "inside": "nethers_delight_legacy:block/inside_hoglin_block",
+    "tray_side": "nethers_delight_legacy:block/stuffed_hoglin_tray",
+    "tray_top": "nethers_delight_legacy:block/tray_top",
+    "tray_bottom": "nethers_delight_legacy:block/tray_bottom"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "north": { "texture": "#tray_side", "uv": [0, 14, 16, 16] },
+        "south": { "texture": "#tray_side", "uv": [0, 14, 16, 16] },
+        "west": { "texture": "#tray_side", "uv": [0, 14, 16, 16] },
+        "east": { "texture": "#tray_side", "uv": [0, 14, 16, 16] },
+        "up": { "texture": "#tray_top", "uv": [0, 0, 16, 16] },
+        "down": { "texture": "#tray_bottom", "uv": [0, 0, 16, 16] }
+      }
+    },
+    {
+      "from": [1, 2, 8],
+      "to": [15, 10, 16],
+      "faces": {
+        "north": { "texture": "#inside", "uv": [0, 0, 14, 8] },
+        "south": { "texture": "#body", "uv": [0, 0, 14, 8] },
+        "west": { "texture": "#body", "uv": [0, 0, 8, 8] },
+        "east": { "texture": "#body", "uv": [0, 0, 8, 8] },
+        "up": { "texture": "#body", "uv": [0, 0, 14, 8] }
+      }
+    }
+  ]
+}

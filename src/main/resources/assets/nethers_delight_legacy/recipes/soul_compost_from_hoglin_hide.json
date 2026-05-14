@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockSoulSoil"
+    },
+    {
+      "item": "nethers_delight_legacy:hoglin_hide"
+    },
+    {
+      "item": "nethers_delight_legacy:hoglin_hide"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropTwistingVines"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropTwistingVines"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    }
+  ],
+  "result": {
+    "item": "nethers_delight_legacy:soul_compost"
+  }
+}

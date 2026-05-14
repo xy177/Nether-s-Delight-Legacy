@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "php",
+    "pwp",
+    "ggg"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:planks",
+      "data": 32767
+    },
+    "h": {
+      "item": "nethers_delight_legacy:hoglin_hide"
+    },
+    "w": {
+      "item": "minecraft:wool",
+      "data": 32767
+    },
+    "g": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "nethers_delight_legacy:hoglin_trophy"
+  }
+}

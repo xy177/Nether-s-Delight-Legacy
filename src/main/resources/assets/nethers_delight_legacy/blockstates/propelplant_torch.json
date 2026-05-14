@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "facing=up": { "model": "nethers_delight_legacy:propelplant_torch" },
+    "facing=east": { "model": "nethers_delight_legacy:propelplant_wall_torch" },
+    "facing=south": { "model": "nethers_delight_legacy:propelplant_wall_torch", "y": 90 },
+    "facing=west": { "model": "nethers_delight_legacy:propelplant_wall_torch", "y": 180 },
+    "facing=north": { "model": "nethers_delight_legacy:propelplant_wall_torch", "y": 270 }
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "modid": "nethers_delight_legacy",
+    "name": "Nether's Delight Legacy",
+    "description": "Legacy Nether cooking and food content for Minecraft 1.12.2.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["xy177"],
+    "credits": "",
+    "logoFile": "logo.png",
+    "screenshots": [],
+    "dependencies": [
+      "required-after:farmersdelight",
+      "after:futuremc"
+    ]
+  }
+]

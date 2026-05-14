@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "side": "nethers_delight_legacy:block/blackstone_stove_side",
+    "front": "nethers_delight_legacy:block/blackstone_stove_front_on",
+    "top": "nethers_delight_legacy:block/blackstone_stove_top_on",
+    "bottom": "nethers_delight_legacy:block/blackstone_stove_bottom"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "nethers_delight_legacy:item/ground_strider"
+  }
+}

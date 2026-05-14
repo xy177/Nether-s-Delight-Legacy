@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/torch_wall",
+  "textures": {
+    "torch": "nethers_delight_legacy:block/propelplant_torch"
+  }
+}

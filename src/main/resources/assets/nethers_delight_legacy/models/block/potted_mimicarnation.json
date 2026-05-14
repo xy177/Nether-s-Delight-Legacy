@@ -1,0 +1,6 @@
+{
+  "parent": "block/flower_pot_cross",
+  "textures": {
+    "plant": "nethers_delight_legacy:block/potted_mimicarnation"
+  }
+}

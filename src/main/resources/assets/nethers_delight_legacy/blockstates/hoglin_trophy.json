@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east": { "model": "nethers_delight_legacy:hoglin_trophy", "y": 90 },
+    "facing=north": { "model": "nethers_delight_legacy:hoglin_trophy" },
+    "facing=south": { "model": "nethers_delight_legacy:hoglin_trophy", "y": 180 },
+    "facing=west": { "model": "nethers_delight_legacy:hoglin_trophy", "y": 270 }
+  }
+}

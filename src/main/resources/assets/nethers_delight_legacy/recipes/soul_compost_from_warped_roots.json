@@ -1,0 +1,44 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockSoulSoil"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropTwistingVines"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropTwistingVines"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    }
+  ],
+  "result": {
+    "item": "nethers_delight_legacy:soul_compost"
+  }
+}

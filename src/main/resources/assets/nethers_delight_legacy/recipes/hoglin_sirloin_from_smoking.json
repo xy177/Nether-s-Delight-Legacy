@@ -1,0 +1,9 @@
+{
+  "type": "farmersdelight:smelting",
+  "ingredient": {
+    "item": "nethers_delight_legacy:hoglin_loin"
+  },
+  "result": "nethers_delight_legacy:hoglin_sirloin",
+  "experience": 0.35,
+  "cookingtime": 100
+}

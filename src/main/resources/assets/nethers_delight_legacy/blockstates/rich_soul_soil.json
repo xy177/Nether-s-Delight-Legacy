@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": [
+      { "model": "nethers_delight_legacy:rich_soul_soil" },
+      { "model": "nethers_delight_legacy:rich_soul_soil", "y": 90 },
+      { "model": "nethers_delight_legacy:rich_soul_soil", "y": 180 },
+      { "model": "nethers_delight_legacy:rich_soul_soil", "y": 270 }
+    ]
+  }
+}

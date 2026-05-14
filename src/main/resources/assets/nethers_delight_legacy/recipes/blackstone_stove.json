@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bbb",
+    "n n",
+    "ncn"
+  ],
+  "key": {
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "blockBlackstone"
+    },
+    "n": {
+      "item": "minecraft:netherbrick"
+    },
+    "c": {
+      "item": "futuremc:campfire"
+    }
+  },
+  "result": {
+    "item": "nethers_delight_legacy:blackstone_stove"
+  }
+}

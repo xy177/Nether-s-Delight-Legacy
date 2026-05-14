@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "nethers_delight_legacy:block/soul_compost_3",
+    "north": "nethers_delight_legacy:block/soul_compost_3",
+    "south": "nethers_delight_legacy:block/soul_compost_3",
+    "east": "nethers_delight_legacy:block/soul_compost_3",
+    "west": "nethers_delight_legacy:block/soul_compost_3",
+    "up": "nethers_delight_legacy:block/rich_soul_soil",
+    "down": "nethers_delight_legacy:block/soul_compost_3"
+  }
+}

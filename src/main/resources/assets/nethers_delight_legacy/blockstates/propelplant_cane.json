@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "bud=false,cut=false,pearl=false,stem=false": { "model": "nethers_delight_legacy:propelplant_cane" },
+    "bud=false,cut=true,pearl=false,stem=false": { "model": "nethers_delight_legacy:propelplant_cane" },
+    "bud=false,cut=false,pearl=true,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud_pearl" },
+    "bud=false,cut=true,pearl=true,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud_pearl" },
+    "bud=true,cut=false,pearl=false,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud" },
+    "bud=true,cut=true,pearl=false,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud" },
+    "bud=true,cut=false,pearl=true,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud_pearl" },
+    "bud=true,cut=true,pearl=true,stem=false": { "model": "nethers_delight_legacy:propelplant_cane_bud_pearl" },
+    "bud=false,cut=false,pearl=false,stem=true": { "model": "nethers_delight_legacy:propelplant_stem" },
+    "bud=false,cut=true,pearl=false,stem=true": { "model": "nethers_delight_legacy:propelplant_stem" },
+    "bud=false,cut=false,pearl=true,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud_pearl" },
+    "bud=false,cut=true,pearl=true,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud_pearl" },
+    "bud=true,cut=false,pearl=false,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud" },
+    "bud=true,cut=true,pearl=false,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud" },
+    "bud=true,cut=false,pearl=true,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud_pearl" },
+    "bud=true,cut=true,pearl=true,stem=true": { "model": "nethers_delight_legacy:propelplant_stem_bud_pearl" }
+  }
+}

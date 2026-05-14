@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "nethers_delight_legacy:hoglin_sirloin"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWarpedRoots"
+    }
+  ],
+  "result": {
+    "item": "nethers_delight_legacy:warped_moldy_meat"
+  }
+}
