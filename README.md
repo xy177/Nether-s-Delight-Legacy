@@ -1,6 +1,6 @@
 # Nether's Delight Legacy
 
-![Nether's Delight Legacy Logo](src/main/resources/logo.png)
+![Nether's Delight Legacy Logo](art/logo_hi.png)
 
 ## Overview
 ### About
