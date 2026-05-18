@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 import xy177.nethersdelightlegacy.NethersDelightLegacy;
 import xy177.nethersdelightlegacy.common.compat.NDCompat;
 import xy177.nethersdelightlegacy.common.item.MacheteItem;
@@ -106,6 +107,10 @@ public final class NDItems {
     public static void registerOreDictionary(RegistryEvent.Register<Item> event) {
         NDCompat.registerOreDictionaryEntries(STRIDER_SLICE, GROUND_STRIDER);
         NDCompat.registerNetherBackportOreDictionary();
+        OreDictionary.registerOre("toolKnife", IRON_MACHETE);
+        OreDictionary.registerOre("toolKnife", GOLDEN_MACHETE);
+        OreDictionary.registerOre("toolKnife", DIAMOND_MACHETE);
+        OreDictionary.registerOre("toolKnife", NETHERITE_MACHETE);
     }
 
     @SideOnly(Side.CLIENT)

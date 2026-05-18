@@ -9,10 +9,7 @@ import mezz.jei.api.recipe.IFocus;
 import mezz.jei.api.recipe.IRecipeRegistryPlugin;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.Loader;
-import com.wdcftgg.farmersdelightlegacy.common.registry.ModItems;
 import xy177.nethersdelightlegacy.common.registry.NDItems;
 import xy177.nethersdelightlegacy.common.registry.NDBlocks;
 
@@ -26,12 +23,13 @@ public class NethersDelightLegacyJeiPlugin implements IModPlugin {
     private static final String CRAFTING = "minecraft.crafting";
     private static final String COOKING_POT = "farmersdelight.cooking_pot";
     private static final String CUTTING_BOARD = "farmersdelight.cutting_board";
+    private static final String HUNTING_DROPS = "farmersdelight.hunting_drops";
+    private static final String HARVEST_DROPS = "farmersdelight.harvest_drops";
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(
-            new CompositionRecipeCategory(registry.getJeiHelpers().getGuiHelper()),
-            new HuntingDropRecipeCategory(registry.getJeiHelpers().getGuiHelper())
+            new CompositionRecipeCategory(registry.getJeiHelpers().getGuiHelper())
         );
     }
 
@@ -39,114 +37,24 @@ public class NethersDelightLegacyJeiPlugin implements IModPlugin {
     public void register(IModRegistry registry) {
         registry.addRecipeRegistryPlugin(new PriorityPlugin());
         registry.addRecipes(Arrays.asList(new CompositionRecipeWrapper()), NDJeiRecipeTypes.COMPOSITION);
-        registry.addRecipes(createHuntingDropRecipes(), NDJeiRecipeTypes.HUNTING_DROPS);
         registry.addRecipeCatalyst(new ItemStack(NDBlocks.SOUL_COMPOST_ITEM), NDJeiRecipeTypes.COMPOSITION);
-        addHuntingDropCatalysts(registry);
+        addMacheteCatalysts(registry);
     }
 
-    private static List<HuntingDropJeiRecipe> createHuntingDropRecipes() {
-        List<HuntingDropJeiRecipe> recipes = new ArrayList<>();
-        List<ItemStack> tools = createHuntingToolStacks();
-
-        if (Loader.isModLoaded("netherized")) {
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("netherized", "hoglin"),
-                tools,
-                new ItemStack(NDItems.HOGLIN_HIDE),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("netherized", "hoglin"),
-                tools,
-                new ItemStack(ModItems.get("ham")),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("netherized", "hoglin"),
-                tools,
-                new ItemStack(ModItems.get("smoked_ham")),
-                true
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("netherized", "strider"),
-                tools,
-                new ItemStack(NDItems.STRIDER_SLICE),
-                false
-            ));
-        }
-
-        if (Loader.isModLoaded("nb")) {
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "hoglin"),
-                tools,
-                new ItemStack(NDItems.HOGLIN_HIDE),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "hoglin"),
-                tools,
-                new ItemStack(ModItems.get("ham")),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "hoglin"),
-                tools,
-                new ItemStack(ModItems.get("smoked_ham")),
-                true
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "zoglin"),
-                tools,
-                new ItemStack(NDItems.HOGLIN_HIDE),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "zoglin"),
-                tools,
-                new ItemStack(ModItems.get("ham")),
-                false
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "zoglin"),
-                tools,
-                new ItemStack(ModItems.get("smoked_ham")),
-                true
-            ));
-            recipes.add(new HuntingDropJeiRecipe(
-                new ResourceLocation("nb", "strider"),
-                tools,
-                new ItemStack(NDItems.STRIDER_SLICE),
-                false
-            ));
-        }
-
-        return recipes;
+    private static void addMacheteCatalysts(IModRegistry registry) {
+        addMacheteCatalyst(registry, NDItems.IRON_MACHETE);
+        addMacheteCatalyst(registry, NDItems.GOLDEN_MACHETE);
+        addMacheteCatalyst(registry, NDItems.DIAMOND_MACHETE);
+        addMacheteCatalyst(registry, NDItems.NETHERITE_MACHETE);
     }
 
-    private static List<ItemStack> createHuntingToolStacks() {
-        List<ItemStack> tools = new ArrayList<>();
-        tools.add(new ItemStack(NDItems.IRON_MACHETE));
-        tools.add(new ItemStack(NDItems.GOLDEN_MACHETE));
-        tools.add(new ItemStack(NDItems.DIAMOND_MACHETE));
-        tools.add(new ItemStack(NDItems.NETHERITE_MACHETE));
-        addIfPresent(tools, ModItems.get("flint_knife"));
-        addIfPresent(tools, ModItems.get("iron_knife"));
-        addIfPresent(tools, ModItems.get("golden_knife"));
-        addIfPresent(tools, ModItems.get("diamond_knife"));
-        addIfPresent(tools, ModItems.get("netherite_knife"));
-        return tools;
-    }
-
-    private static void addHuntingDropCatalysts(IModRegistry registry) {
-        for (ItemStack stack : createHuntingToolStacks()) {
-            registry.addRecipeCatalyst(stack, NDJeiRecipeTypes.HUNTING_DROPS);
+    private static void addMacheteCatalyst(IModRegistry registry, Item item) {
+        if (item == null) {
+            return;
         }
-    }
-
-    private static void addIfPresent(List<ItemStack> list, Item item) {
-        if (item != null) {
-            list.add(new ItemStack(item));
-        }
+        ItemStack stack = new ItemStack(item);
+        registry.addRecipeCatalyst(stack, HUNTING_DROPS);
+        registry.addRecipeCatalyst(stack, HARVEST_DROPS);
     }
 
     private static class PriorityPlugin implements IRecipeRegistryPlugin {

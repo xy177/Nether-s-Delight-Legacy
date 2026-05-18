@@ -1,5 +1,6 @@
 package xy177.nethersdelightlegacy.common.block;
 
+import com.wdcftgg.farmersdelightlegacy.common.item.ItemKnife;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
@@ -408,11 +409,6 @@ public class BlockPropelplantCane extends BlockBush implements IGrowable, IPlant
     }
 
     private boolean isHuntingTool(ItemStack stack) {
-        if (stack == null || stack.isEmpty() || stack.getItem().getRegistryName() == null) {
-            return false;
-        }
-
-        String key = stack.getItem().getRegistryName().toString();
-        return key.startsWith("farmersdelight:") && (key.endsWith("_knife") || key.endsWith("_machete"));
+        return ItemKnife.isKnife(stack);
     }
 }
