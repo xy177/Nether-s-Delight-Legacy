@@ -23,8 +23,6 @@ public class NethersDelightLegacyJeiPlugin implements IModPlugin {
     private static final String CRAFTING = "minecraft.crafting";
     private static final String COOKING_POT = "farmersdelight.cooking_pot";
     private static final String CUTTING_BOARD = "farmersdelight.cutting_board";
-    private static final String HUNTING_DROPS = "farmersdelight.hunting_drops";
-    private static final String HARVEST_DROPS = "farmersdelight.harvest_drops";
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
@@ -38,23 +36,6 @@ public class NethersDelightLegacyJeiPlugin implements IModPlugin {
         registry.addRecipeRegistryPlugin(new PriorityPlugin());
         registry.addRecipes(Arrays.asList(new CompositionRecipeWrapper()), NDJeiRecipeTypes.COMPOSITION);
         registry.addRecipeCatalyst(new ItemStack(NDBlocks.SOUL_COMPOST_ITEM), NDJeiRecipeTypes.COMPOSITION);
-        addMacheteCatalysts(registry);
-    }
-
-    private static void addMacheteCatalysts(IModRegistry registry) {
-        addMacheteCatalyst(registry, NDItems.IRON_MACHETE);
-        addMacheteCatalyst(registry, NDItems.GOLDEN_MACHETE);
-        addMacheteCatalyst(registry, NDItems.DIAMOND_MACHETE);
-        addMacheteCatalyst(registry, NDItems.NETHERITE_MACHETE);
-    }
-
-    private static void addMacheteCatalyst(IModRegistry registry, Item item) {
-        if (item == null) {
-            return;
-        }
-        ItemStack stack = new ItemStack(item);
-        registry.addRecipeCatalyst(stack, HUNTING_DROPS);
-        registry.addRecipeCatalyst(stack, HARVEST_DROPS);
     }
 
     private static class PriorityPlugin implements IRecipeRegistryPlugin {
