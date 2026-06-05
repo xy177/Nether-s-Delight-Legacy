@@ -42,8 +42,6 @@ public final class NDRecipeRegistry {
 
     private static void registerFurnaceRecipes() {
         FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(NDItems.HOGLIN_LOIN), new ItemStack(NDItems.HOGLIN_SIRLOIN), 0.35F);
-        FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(NDItems.IRON_MACHETE), new ItemStack(Items.IRON_NUGGET), 0.1F);
-        FurnaceRecipes.instance().addSmeltingRecipe(new ItemStack(NDItems.GOLDEN_MACHETE), new ItemStack(Items.GOLD_NUGGET), 0.1F);
     }
 
     private static void registerCampfireRecipes() {

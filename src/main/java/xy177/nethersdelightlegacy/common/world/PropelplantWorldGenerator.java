@@ -5,9 +5,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import xy177.nethersdelightlegacy.common.config.NDConfig;
 import xy177.nethersdelightlegacy.common.registry.NDBlocks;
 
 import java.util.Random;
@@ -15,14 +17,17 @@ import java.util.Random;
 public class PropelplantWorldGenerator implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if (world.provider.getDimension() != -1) {
+        if (!NDConfig.propelplantWorldgenEnabled || NDConfig.propelplantGenerationAttemptsPerChunk <= 0 || world.provider.getDimension() != -1) {
             return;
         }
 
         int originX = chunkX * 16;
         int originZ = chunkZ * 16;
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < NDConfig.propelplantGenerationAttemptsPerChunk; i++) {
             BlockPos start = new BlockPos(originX + random.nextInt(16), 20 + random.nextInt(90), originZ + random.nextInt(16));
+            if (!canGenerateInBiome(world, start)) {
+                continue;
+            }
             generatePatch(world, start, random);
         }
     }
@@ -83,5 +88,14 @@ public class PropelplantWorldGenerator implements IWorldGenerator {
             || "nb:crimson_grass".equals(key)
             || "nb:warped_grass".equals(key)
             || block == Blocks.NETHERRACK;
+    }
+
+    private boolean canGenerateInBiome(World world, BlockPos pos) {
+        if (NDConfig.propelplantAllowedBiomes.contains("*")) {
+            return true;
+        }
+        Biome biome = world.getBiome(pos);
+        String key = biome.getRegistryName() == null ? "" : biome.getRegistryName().toString();
+        return NDConfig.propelplantAllowedBiomes.contains(key);
     }
 }

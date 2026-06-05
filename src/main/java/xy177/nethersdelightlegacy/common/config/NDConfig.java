@@ -13,6 +13,9 @@ public final class NDConfig {
     public static Set<String> mimicarnationExtraMealItems = Collections.emptySet();
     public static int propelplantHazardMode = 2;
     public static float propelplantExplosionPower = 6.0F;
+    public static boolean propelplantWorldgenEnabled = true;
+    public static int propelplantGenerationAttemptsPerChunk = 8;
+    public static Set<String> propelplantAllowedBiomes = Collections.emptySet();
 
     private NDConfig() {
     }
@@ -72,6 +75,41 @@ public final class NDConfig {
             "Explosion power for Propelplant hazards.\n"
                 + "枪药藤危险交互的爆炸强度。"
         );
+
+        propelplantWorldgenEnabled = config.getBoolean(
+            "propelplantWorldgenEnabled",
+            "propelplant_worldgen",
+            true,
+            "If false, Propelplant Cane will not generate naturally.\n"
+                + "若为 false，枪药藤不会自然生成。"
+        );
+        propelplantGenerationAttemptsPerChunk = config.getInt(
+            "propelplantGenerationAttemptsPerChunk",
+            "propelplant_worldgen",
+            8,
+            0,
+            64,
+            "Generation attempts per Nether chunk. Lower this to reduce natural Propelplant density.\n"
+                + "每个下界区块的枪药藤生成尝试次数，调低可降低自然生成密度。"
+        );
+        String[] allowedBiomes = config.getStringList(
+            "propelplantAllowedBiomes",
+            "propelplant_worldgen",
+            new String[]{
+                "netherized:crimson_forest",
+                "nb:crimson_forest"
+            },
+            "Allowed biome registry names for natural Propelplant generation. Use * to allow every Nether biome.\n"
+                + "允许枪药藤自然生成的生物群系注册名白名单，使用 * 可允许所有下界生物群系。"
+        );
+        LinkedHashSet<String> biomeSet = new LinkedHashSet<>();
+        for (String value : allowedBiomes) {
+            String trimmed = value == null ? "" : value.trim();
+            if (!trimmed.isEmpty()) {
+                biomeSet.add(trimmed);
+            }
+        }
+        propelplantAllowedBiomes = Collections.unmodifiableSet(biomeSet);
 
         if (config.hasChanged()) {
             config.save();
