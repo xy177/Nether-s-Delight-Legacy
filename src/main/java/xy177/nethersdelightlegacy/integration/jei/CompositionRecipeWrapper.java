@@ -58,6 +58,8 @@ public class CompositionRecipeWrapper implements IRecipeWrapper {
         stacks.add(new ItemStack(Blocks.BONE_BLOCK));
         stacks.add(new ItemStack(Blocks.NETHER_WART_BLOCK));
         stacks.add(new ItemStack(NDBlocks.SOUL_COMPOST_ITEM));
+        stacks.add(new ItemStack(NDBlocks.CRIMSON_FUNGUS_COLONY_ITEM));
+        stacks.add(new ItemStack(NDBlocks.WARPED_FUNGUS_COLONY_ITEM));
         stacks.add(new ItemStack(NDBlocks.RICH_SOUL_SOIL_ITEM));
         return stacks;
     }

@@ -2,6 +2,7 @@ package xy177.nethersdelightlegacy.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
@@ -20,6 +21,7 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -30,7 +32,6 @@ import xy177.nethersdelightlegacy.common.registry.NDItems;
 import xy177.nethersdelightlegacy.common.tile.TileEntityStuffedHoglin;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
@@ -42,6 +43,7 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
         super(Material.CAKE);
         setHardness(0.8F);
         setResistance(1.0F);
+        setSoundType(SoundType.WOOD);
         setDefaultState(blockState.getBaseState()
             .withProperty(FACING, EnumFacing.NORTH)
             .withProperty(SERVINGS, 11)
@@ -217,8 +219,23 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
     }
 
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return state.getValue(PART) == Part.HEAD ? Item.getItemFromBlock(this) : Items.AIR;
+    public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity tile, ItemStack stack) {
+        if (!worldIn.isRemote && !player.capabilities.isCreativeMode && isCompleteHead(state, tile)) {
+            spawnAsEntity(worldIn, pos, new ItemStack(this));
+        }
+    }
+
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        if (isCompleteHead(state, world.getTileEntity(pos))) {
+            drops.add(new ItemStack(this));
+        }
+    }
+
+    private boolean isCompleteHead(IBlockState state, @Nullable TileEntity tile) {
+        return state.getValue(PART) == Part.HEAD
+            && tile instanceof TileEntityStuffedHoglin
+            && ((TileEntityStuffedHoglin) tile).getServings() == 11;
     }
 
     @Override

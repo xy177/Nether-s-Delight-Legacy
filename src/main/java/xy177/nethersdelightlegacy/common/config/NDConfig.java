@@ -16,6 +16,7 @@ public final class NDConfig {
     public static boolean propelplantWorldgenEnabled = true;
     public static int propelplantGenerationAttemptsPerChunk = 8;
     public static Set<String> propelplantAllowedBiomes = Collections.emptySet();
+    public static boolean propelpearlBarteringEnabled = true;
 
     private NDConfig() {
     }
@@ -110,6 +111,14 @@ public final class NDConfig {
             }
         }
         propelplantAllowedBiomes = Collections.unmodifiableSet(biomeSet);
+
+        propelpearlBarteringEnabled = config.getBoolean(
+            "propelpearlBarteringEnabled",
+            "piglin_bartering",
+            true,
+            "If false, Propelpearls will not be added to supported Piglin bartering loot tables.\n"
+                + "\u82E5\u4E3A false\uFF0C\u67AA\u836F\u73E0\u4E0D\u4F1A\u52A0\u5165\u53D7\u652F\u6301\u7684\u732A\u7075\u4EA4\u6613\u6218\u5229\u54C1\u8868\u3002"
+        );
 
         if (config.hasChanged()) {
             config.save();

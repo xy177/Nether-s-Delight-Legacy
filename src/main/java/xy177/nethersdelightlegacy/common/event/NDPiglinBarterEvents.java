@@ -5,7 +5,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
 import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
@@ -14,6 +13,7 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import xy177.nethersdelightlegacy.NethersDelightLegacy;
+import xy177.nethersdelightlegacy.common.config.NDConfig;
 import xy177.nethersdelightlegacy.common.registry.NDItems;
 
 @Mod.EventBusSubscriber(modid = NethersDelightLegacy.MODID)
@@ -26,19 +26,16 @@ public final class NDPiglinBarterEvents {
 
     @SubscribeEvent
     public static void onLootTableLoad(LootTableLoadEvent event) {
-        if ((!NB_PIGLIN_TRADE.equals(event.getName()) && !NETHERIZED_PIGLIN_TRADE.equals(event.getName())) || NDItems.PROPELPEARL == null) {
+        if (!NDConfig.propelpearlBarteringEnabled
+            || (!NB_PIGLIN_TRADE.equals(event.getName()) && !NETHERIZED_PIGLIN_TRADE.equals(event.getName()))
+            || NDItems.PROPELPEARL == null) {
             return;
         }
 
-        LootPool pool = event.getTable().getPool("main");
-        if (pool == null) {
-            LootTable table = event.getTable();
-            LootEntry entry = createPropelpearlEntry();
-            table.addPool(new LootPool(new LootEntry[]{entry}, new LootCondition[0], new RandomValueRange(1), new RandomValueRange(0), "main"));
-            return;
+        LootPool pool = event.getTable().getPool(event.getName().toString());
+        if (pool != null) {
+            pool.addEntry(createPropelpearlEntry());
         }
-
-        pool.addEntry(createPropelpearlEntry());
     }
 
     private static LootEntry createPropelpearlEntry() {

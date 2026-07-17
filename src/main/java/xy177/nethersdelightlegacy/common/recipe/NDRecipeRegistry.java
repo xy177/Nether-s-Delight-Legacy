@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import xy177.nethersdelightlegacy.NethersDelightLegacy;
 import xy177.nethersdelightlegacy.common.compat.NDCompat;
+import xy177.nethersdelightlegacy.common.registry.NDBlocks;
 import xy177.nethersdelightlegacy.common.registry.NDItems;
 
 import java.lang.reflect.Constructor;
@@ -23,6 +24,7 @@ import java.util.List;
 
 public final class NDRecipeRegistry {
     private static boolean registered;
+    private static boolean futureMcSmithingRegistered;
 
     private NDRecipeRegistry() {
     }
@@ -38,6 +40,10 @@ public final class NDRecipeRegistry {
         registerCookingPotRecipes();
         registerCuttingBoardRecipes();
         registerNetheriteMacheteUpgrade();
+    }
+
+    public static void registerEarlyCompatibilityRecipes() {
+        futureMcSmithingRegistered = tryRegisterFutureMcSmithing();
     }
 
     private static void registerFurnaceRecipes() {
@@ -138,10 +144,33 @@ public final class NDRecipeRegistry {
             1,
             1.0F
         );
+
+        registerFungusColonyCuttingRecipe(
+            "crimson_fungus_colony",
+            NDBlocks.CRIMSON_FUNGUS_COLONY_ITEM,
+            NDCompat.getPreferredCrimsonFungus()
+        );
+        registerFungusColonyCuttingRecipe(
+            "warped_fungus_colony",
+            NDBlocks.WARPED_FUNGUS_COLONY_ITEM,
+            NDCompat.getPreferredWarpedFungus()
+        );
+    }
+
+    private static void registerFungusColonyCuttingRecipe(String name, Item colony, Item fungus) {
+        if (colony != null && fungus != null) {
+            CuttingBoardRecipeApi.registerRecipe(
+                id(name),
+                new ItemStack(colony),
+                null,
+                new ItemStack(fungus, 5),
+                1.0F
+            );
+        }
     }
 
     private static void registerNetheriteMacheteUpgrade() {
-        if (tryRegisterFutureMcSmithing() || tryRegisterNetherizedUpgrade()) {
+        if (futureMcSmithingRegistered || tryRegisterFutureMcSmithing() || tryRegisterNetherizedUpgrade()) {
             return;
         }
     }

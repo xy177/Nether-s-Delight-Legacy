@@ -31,6 +31,11 @@ public class BlockBlackstoneStove extends BlockStove {
     }
 
     @Override
+    public int getLightValue(IBlockState state) {
+        return state.getValue(LIT) ? 12 : 0;
+    }
+
+    @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = player.getHeldItem(hand);
 
