@@ -165,7 +165,7 @@ public final class NDFarmersDelightApiCompat {
         );
     }
 
-    private static void registerHamDrop(String key, com.wdcftgg.farmersdelightlegacy.common.recipe.HuntingDropRecipeManager.HuntingTargetMatcher matcher, ItemStack stack, boolean burning, float chance, float lootingBonus, ResourceLocation entityId) {
+    private static void registerHamDrop(String key, com.wdcftgg.farmersdelightlegacy.common.recipe.manager.HuntingDropRecipeManager.HuntingTargetMatcher matcher, ItemStack stack, boolean burning, float chance, float lootingBonus, ResourceLocation entityId) {
         if (!burning) {
             HuntingDropRecipeApi.registerRecipe(
                 key,

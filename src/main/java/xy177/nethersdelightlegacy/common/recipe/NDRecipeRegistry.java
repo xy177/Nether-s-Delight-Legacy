@@ -2,7 +2,7 @@ package xy177.nethersdelightlegacy.common.recipe;
 
 import com.wdcftgg.farmersdelightlegacy.api.recipe.CookingPotRecipeApi;
 import com.wdcftgg.farmersdelightlegacy.api.recipe.CuttingBoardRecipeApi;
-import com.wdcftgg.farmersdelightlegacy.common.recipe.CampfireCookingRecipeManager;
+import com.wdcftgg.farmersdelightlegacy.common.recipe.manager.CampfireCookingRecipeManager;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
