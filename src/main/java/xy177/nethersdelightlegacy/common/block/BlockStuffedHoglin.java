@@ -1,5 +1,6 @@
 package xy177.nethersdelightlegacy.common.block;
 
+import com.wdcftgg.farmersdelightlegacy.common.item.ItemKnife;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -160,8 +161,7 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
     }
 
     private boolean isKnife(ItemStack stack) {
-        String key = stack.getItem().getRegistryName() == null ? "" : stack.getItem().getRegistryName().toString();
-        return key.startsWith("farmersdelight:") && key.endsWith("_knife");
+        return ItemKnife.isKnife(stack);
     }
 
     @Override
