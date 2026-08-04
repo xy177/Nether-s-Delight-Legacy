@@ -137,6 +137,8 @@ public class BlockFungusColony extends BlockMushroomColony {
             || isBlock(state, NDCompat.NETHER_BACKPORT, "soul_soil")
             || isBlock(state, NDCompat.FUTURE_MC, "crimson_nylium")
             || isBlock(state, NDCompat.FUTURE_MC, "warped_nylium")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "crimson_nylium")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "warped_nylium")
             || isBlock(state, NDCompat.NETHERIZED, "crimson_nylium")
             || isBlock(state, NDCompat.NETHERIZED, "warped_nylium")
             || isBlock(state, NDCompat.NETHER_BACKPORT, "crimson_grass")

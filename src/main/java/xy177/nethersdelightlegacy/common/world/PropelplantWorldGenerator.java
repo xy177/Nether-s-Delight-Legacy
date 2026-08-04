@@ -83,6 +83,8 @@ public class PropelplantWorldGenerator implements IWorldGenerator {
         String key = block.getRegistryName() == null ? "" : block.getRegistryName().toString();
         return "futuremc:crimson_nylium".equals(key)
             || "futuremc:warped_nylium".equals(key)
+            || "farmers_future_delight:crimson_nylium".equals(key)
+            || "farmers_future_delight:warped_nylium".equals(key)
             || "netherized:crimson_nylium".equals(key)
             || "netherized:warped_nylium".equals(key)
             || "nb:crimson_grass".equals(key)

@@ -98,6 +98,7 @@ public final class NDConfig {
             "propelplant_worldgen",
             new String[]{
                 "netherized:crimson_forest",
+                "farmers_future_delight:crimson_forest",
                 "nb:crimson_forest"
             },
             "Allowed biome registry names for natural Propelplant generation. Use * to allow every Nether biome.\n"

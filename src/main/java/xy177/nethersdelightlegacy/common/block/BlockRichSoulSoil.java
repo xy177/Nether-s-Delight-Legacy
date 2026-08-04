@@ -42,6 +42,7 @@ public class BlockRichSoulSoil extends Block {
         IBlockState aboveState = worldIn.getBlockState(abovePos);
 
         if (isBlock(aboveState, NDCompat.FUTURE_MC, "crimson_fungus")
+            || isBlock(aboveState, NDCompat.FARMERS_FUTURE_DELIGHT, "crimson_fungus")
             || isBlock(aboveState, NDCompat.NETHERIZED, "crimson_fungus")
             || isBlock(aboveState, NDCompat.NETHER_BACKPORT, "crimson_fungus")) {
             worldIn.setBlockState(abovePos, NDBlocks.CRIMSON_FUNGUS_COLONY_BLOCK.getDefaultState(), 3);
@@ -49,6 +50,7 @@ public class BlockRichSoulSoil extends Block {
         }
 
         if (isBlock(aboveState, NDCompat.FUTURE_MC, "warped_fungus")
+            || isBlock(aboveState, NDCompat.FARMERS_FUTURE_DELIGHT, "warped_fungus")
             || isBlock(aboveState, NDCompat.NETHERIZED, "warped_fungus")
             || isBlock(aboveState, NDCompat.NETHER_BACKPORT, "warped_fungus")) {
             worldIn.setBlockState(abovePos, NDBlocks.WARPED_FUNGUS_COLONY_BLOCK.getDefaultState(), 3);
@@ -103,6 +105,10 @@ public class BlockRichSoulSoil extends Block {
             || isBlock(state, NDCompat.FUTURE_MC, "twisting_vines_plant")
             || isBlock(state, NDCompat.FUTURE_MC, "weeping_vines")
             || isBlock(state, NDCompat.FUTURE_MC, "weeping_vines_plant")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "twisting_vines")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "twisting_vines_plant")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "weeping_vines")
+            || isBlock(state, NDCompat.FARMERS_FUTURE_DELIGHT, "weeping_vines_plant")
             || isBlock(state, NDCompat.NETHERIZED, "twisting_vines")
             || isBlock(state, NDCompat.NETHERIZED, "twisting_vines_end")
             || isBlock(state, NDCompat.NETHERIZED, "weeping_vines")

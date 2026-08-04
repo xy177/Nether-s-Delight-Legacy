@@ -12,6 +12,7 @@ import java.util.Set;
 public final class NDCompat {
     public static final String FARMERS_DELIGHT = "farmersdelight";
     public static final String FUTURE_MC = "futuremc";
+    public static final String FARMERS_FUTURE_DELIGHT = "farmers_future_delight";
     public static final String NETHERIZED = "netherized";
     public static final String NETHER_BACKPORT = "nb";
 
@@ -61,6 +62,7 @@ public final class NDCompat {
     public static Item getPreferredCrimsonFungus() {
         return firstPresent(
             findItem(FUTURE_MC, "crimson_fungus"),
+            findItem(FARMERS_FUTURE_DELIGHT, "crimson_fungus"),
             findItem(NETHERIZED, "crimson_fungus"),
             findItem(NETHER_BACKPORT, "crimson_fungus")
         );
@@ -69,6 +71,7 @@ public final class NDCompat {
     public static Item getPreferredWarpedFungus() {
         return firstPresent(
             findItem(FUTURE_MC, "warped_fungus"),
+            findItem(FARMERS_FUTURE_DELIGHT, "warped_fungus"),
             findItem(NETHERIZED, "warped_fungus"),
             findItem(NETHER_BACKPORT, "warped_fungus")
         );
@@ -77,6 +80,7 @@ public final class NDCompat {
     public static Item getPreferredCrimsonRoots() {
         return firstPresent(
             findItem(FUTURE_MC, "crimson_roots"),
+            findItem(FARMERS_FUTURE_DELIGHT, "crimson_roots"),
             findItem(NETHERIZED, "crimson_roots"),
             findItem(NETHER_BACKPORT, "crimson_roots")
         );
@@ -85,6 +89,7 @@ public final class NDCompat {
     public static Item getPreferredWarpedRoots() {
         return firstPresent(
             findItem(FUTURE_MC, "warped_roots"),
+            findItem(FARMERS_FUTURE_DELIGHT, "warped_roots"),
             findItem(NETHERIZED, "warped_roots"),
             findItem(NETHER_BACKPORT, "warped_roots")
         );
@@ -93,6 +98,7 @@ public final class NDCompat {
     public static Item getPreferredTwistingVines() {
         return firstPresent(
             findItem(FUTURE_MC, "twisting_vines"),
+            findItem(FARMERS_FUTURE_DELIGHT, "twisting_vines"),
             findItem(NETHERIZED, "twisting_vines"),
             findItem(NETHER_BACKPORT, "warped_vine")
         );
@@ -117,26 +123,31 @@ public final class NDCompat {
     public static void registerNetherBackportOreDictionary() {
         registerOre("cropCrimsonFungus",
             findItem(FUTURE_MC, "crimson_fungus"),
+            findItem(FARMERS_FUTURE_DELIGHT, "crimson_fungus"),
             findItem(NETHERIZED, "crimson_fungus"),
             findItem(NETHER_BACKPORT, "crimson_fungus")
         );
         registerOre("cropWarpedFungus",
             findItem(FUTURE_MC, "warped_fungus"),
+            findItem(FARMERS_FUTURE_DELIGHT, "warped_fungus"),
             findItem(NETHERIZED, "warped_fungus"),
             findItem(NETHER_BACKPORT, "warped_fungus")
         );
         registerOre("cropCrimsonRoots",
             findItem(FUTURE_MC, "crimson_roots"),
+            findItem(FARMERS_FUTURE_DELIGHT, "crimson_roots"),
             findItem(NETHERIZED, "crimson_roots"),
             findItem(NETHER_BACKPORT, "crimson_roots")
         );
         registerOre("cropWarpedRoots",
             findItem(FUTURE_MC, "warped_roots"),
+            findItem(FARMERS_FUTURE_DELIGHT, "warped_roots"),
             findItem(NETHERIZED, "warped_roots"),
             findItem(NETHER_BACKPORT, "warped_roots")
         );
         registerOre("cropTwistingVines",
             findItem(FUTURE_MC, "twisting_vines"),
+            findItem(FARMERS_FUTURE_DELIGHT, "twisting_vines"),
             findItem(NETHERIZED, "twisting_vines"),
             findItem(NETHER_BACKPORT, "warped_vine")
         );

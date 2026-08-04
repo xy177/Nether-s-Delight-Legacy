@@ -78,6 +78,8 @@ public final class NDPlantingEvents {
         String key = item.getRegistryName().toString();
         if ("futuremc:crimson_fungus".equals(key)
             || "futuremc:warped_fungus".equals(key)
+            || "farmers_future_delight:crimson_fungus".equals(key)
+            || "farmers_future_delight:warped_fungus".equals(key)
             || "netherized:crimson_fungus".equals(key)
             || "netherized:warped_fungus".equals(key)
             || "nb:crimson_fungus".equals(key)
@@ -89,11 +91,14 @@ public final class NDPlantingEvents {
 
         if ("futuremc:crimson_roots".equals(key)
             || "futuremc:warped_roots".equals(key)
+            || "farmers_future_delight:crimson_roots".equals(key)
+            || "farmers_future_delight:warped_roots".equals(key)
             || "netherized:crimson_roots".equals(key)
             || "netherized:warped_roots".equals(key)
             || "nb:crimson_roots".equals(key)
             || "nb:warped_roots".equals(key)
             || "futuremc:nether_sprouts".equals(key)
+            || "farmers_future_delight:nether_sprouts".equals(key)
             || "netherized:warped_sprouts".equals(key)
             || "nb:warped_sprout".equals(key)) {
             return clickedBlock == NDBlocks.RICH_SOUL_SOIL_BLOCK

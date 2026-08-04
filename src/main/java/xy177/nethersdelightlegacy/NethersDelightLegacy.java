@@ -25,7 +25,7 @@ import xy177.nethersdelightlegacy.common.world.PropelplantWorldGenerator;
 public class NethersDelightLegacy {
     public static final String MODID = "nethers_delight_legacy";
     public static final String NAME = "Nether's Delight Legacy";
-    public static final String VERSION = "1.0.6";
+    public static final String VERSION = "1.0.7";
     private static final String NETHERIZED_MODID = "netherized";
     private static final String NETHER_BACKPORT_MODID = "nb";
 
