@@ -9,8 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import xy177.nethersdelightlegacy.NethersDelightLegacy;
 import xy177.nethersdelightlegacy.common.compat.NDCompat;
 import xy177.nethersdelightlegacy.common.registry.NDBlocks;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class NDRecipeRegistry {
+    private static final Logger LOGGER = LogManager.getLogger(NethersDelightLegacy.MODID);
     private static boolean registered;
     private static boolean futureMcSmithingRegistered;
 
@@ -43,7 +47,9 @@ public final class NDRecipeRegistry {
     }
 
     public static void registerEarlyCompatibilityRecipes() {
-        futureMcSmithingRegistered = tryRegisterFutureMcSmithing();
+        if (Loader.isModLoaded(NDCompat.FUTURE_MC)) {
+            futureMcSmithingRegistered = tryRegisterFutureMcSmithing();
+        }
     }
 
     private static void registerFurnaceRecipes() {
@@ -187,17 +193,36 @@ public final class NDRecipeRegistry {
             Method getRecipes = recipesClass.getMethod("getRecipes");
             @SuppressWarnings("unchecked")
             List<Object> recipes = (List<Object>) getRecipes.invoke(instance);
+            Item netheriteIngot = NDCompat.getPreferredNetheriteIngot();
+            if (netheriteIngot == null) {
+                return false;
+            }
+            ItemStack baseProbe = new ItemStack(NDItems.DIAMOND_MACHETE, 1, OreDictionary.WILDCARD_VALUE);
+            ItemStack materialProbe = new ItemStack(netheriteIngot);
+            Method getRecipe = recipesClass.getMethod("getRecipe", ItemStack.class, ItemStack.class);
+            Object existingRecipe = getRecipe.invoke(instance, baseProbe, materialProbe);
+            if (existingRecipe != null) {
+                return isOutput(existingRecipe, NDItems.NETHERITE_MACHETE);
+            }
             Constructor<?> ctor = recipeClass.getConstructor(Ingredient.class, Ingredient.class, ItemStack.class);
             Object recipe = ctor.newInstance(
-                Ingredient.fromStacks(new ItemStack(NDItems.DIAMOND_MACHETE, 1, 32767)),
-                Ingredient.fromItem(NDCompat.getPreferredNetheriteIngot()),
+                Ingredient.fromStacks(baseProbe),
+                Ingredient.fromItem(netheriteIngot),
                 new ItemStack(NDItems.NETHERITE_MACHETE)
             );
             recipes.add(recipe);
+            LOGGER.info("Registered the Future-MC smithing table netherite machete recipe.");
             return true;
-        } catch (ReflectiveOperationException ignored) {
+        } catch (ReflectiveOperationException exception) {
+            LOGGER.error("Failed to register the Future-MC smithing table netherite machete recipe.", exception);
             return false;
         }
+    }
+
+    private static boolean isOutput(Object recipe, Item expectedItem) throws ReflectiveOperationException {
+        Method getOutput = recipe.getClass().getMethod("getOutput");
+        ItemStack output = (ItemStack) getOutput.invoke(recipe);
+        return output.getItem() == expectedItem;
     }
 
     private static boolean tryRegisterNetherizedUpgrade() {

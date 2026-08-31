@@ -115,7 +115,7 @@ public final class NDFarmersDelightApiCompat {
         if (ham != null) {
             registerHamDrop(
                 NethersDelightLegacy.MODID + ":" + entityId.getResourceDomain() + "_" + entityId.getResourcePath() + "_ham",
-                entity -> hasEntityId(entity, entityId),
+                entity -> isAdult(entity) && hasEntityId(entity, entityId),
                 new ItemStack(ham),
                 false,
                 1.0F,
@@ -126,7 +126,7 @@ public final class NDFarmersDelightApiCompat {
         if (smokedHam != null) {
             registerHamDrop(
                 NethersDelightLegacy.MODID + ":" + entityId.getResourceDomain() + "_" + entityId.getResourcePath() + "_smoked_ham",
-                entity -> hasEntityId(entity, entityId),
+                entity -> isAdult(entity) && hasEntityId(entity, entityId),
                 new ItemStack(smokedHam),
                 true,
                 1.0F,
@@ -156,7 +156,7 @@ public final class NDFarmersDelightApiCompat {
         );
         HuntingDropRecipeApi.registerRecipeAdvance(
             key,
-            entity -> hasEntityId(entity, entityId),
+            entity -> isAdult(entity) && hasEntityId(entity, entityId),
             outputs,
             true,
             entityId,
@@ -197,6 +197,10 @@ public final class NDFarmersDelightApiCompat {
     private static boolean hasEntityId(EntityLivingBase entity, ResourceLocation id) {
         return EntityRegistry.getEntry(entity.getClass()) != null
             && id.equals(EntityRegistry.getEntry(entity.getClass()).getRegistryName());
+    }
+
+    private static boolean isAdult(EntityLivingBase entity) {
+        return !(entity instanceof EntityAgeable) || !((EntityAgeable) entity).isChild();
     }
 
     private static void forceAdultDisplay(EntityLivingBase entity) {

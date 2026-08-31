@@ -1,6 +1,7 @@
 package xy177.nethersdelightlegacy.common.block;
 
 import com.wdcftgg.farmersdelightlegacy.common.item.ItemKnife;
+import com.wdcftgg.farmersdelightlegacy.common.registry.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
@@ -93,6 +94,7 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
 
     private boolean cutEar(World worldIn, BlockPos pos, IBlockState state) {
         setServings(worldIn, pos, getServings(worldIn, pos) - 1);
+        worldIn.playSound(null, pos, ModSounds.CUTTING_BOARD_KNIFE, SoundCategory.PLAYERS, 0.8F, 0.8F);
         if (!worldIn.isRemote) {
             worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(NDItems.HOGLIN_EAR)));
         }
@@ -101,6 +103,7 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
 
     private boolean takeServing(World worldIn, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, Item serving) {
         setServings(worldIn, pos, getServings(worldIn, pos) - 1);
+        worldIn.playSound(null, pos, net.minecraft.init.SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
         if (!worldIn.isRemote) {
             if (!player.capabilities.isCreativeMode) {
                 player.getHeldItem(hand).shrink(1);
@@ -123,6 +126,7 @@ public class BlockStuffedHoglin extends Block implements ITileEntityProvider {
             worldIn.setBlockToAir(otherPos);
         }
 
+        worldIn.playSound(null, pos, net.minecraft.init.SoundEvents.BLOCK_WOOD_BREAK, SoundCategory.PLAYERS, 1.0F, 1.0F);
         worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.BOWL)));
         worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.BONE, 4)));
     }

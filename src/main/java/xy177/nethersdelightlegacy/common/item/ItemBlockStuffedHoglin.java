@@ -14,6 +14,7 @@ import net.minecraft.world.World;
 public class ItemBlockStuffedHoglin extends ItemBlock {
     public ItemBlockStuffedHoglin(Block block) {
         super(block);
+        setMaxStackSize(1);
     }
 
     @Override
